@@ -11,8 +11,13 @@
 }
 
 @layer base {
-  html, body {
-    height: 100%;
+  * {
+    box-sizing: border-box;
+  }
+
+  html, 
+  body {
+    min-height: 100%;
   }
 
   body {
@@ -25,5 +30,29 @@
   a {
     color: inherit;
     text-decoration: none;
+  }
+}
+
+@layer utilities {
+  .accent-gradient {
+    background: linear-gradient(90deg, var(--accent) 0%, #8fe3cf 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .role-swap {
+    animation: roleSwapIn 220ms ease;
+  }
+}
+
+@keyframes roleSwapIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

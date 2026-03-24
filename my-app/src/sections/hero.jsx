@@ -24,7 +24,6 @@ export default function Hero() {
   const [roleIndex, setRoleIndex] = useState(0)
   const role = ROLES[roleIndex % ROLES.length]
 
-  // optional: rotate roles like your old site
   useEffect(() => {
     const t = setInterval(() => setRoleIndex((i) => i + 1), 2200)
     return () => clearInterval(t)
@@ -34,15 +33,15 @@ export default function Hero() {
     <section
       id="hero"
       aria-label="Hero"
-      className="min-h-[calc(100vh-72px)] scroll-mt-[72px] pt-[clamp(6rem,10vh,24vh)]"
+      className="min-h-[calc(100vh-72px)] scroll-mt-[72px] pt-[clamp(3rem,10vh,24vh)]"
     >
-      <div className="mx-auto w-full max-w-[1100px] px-4">
+      <div className="mx-auto w-full max-w-[1400px] px-4">
         <div className="max-w-none">
-          <p className="m-0 mb-3 text-[var(--muted)] uppercase tracking-[.14em] font-semibold text-[clamp(.9rem,2vw,1.1rem)]">
+          <p className="m-0 mb-3 text-[var(--muted)] uppercase tracking-[.14em] font-semibold text-[clamp(1rem,2vw,2rem)]">
             Hello, I am
           </p>
 
-          <h1 className="m-0 mb-2 leading-[1.02] font-extrabold text-[clamp(3.5rem,10vw,7rem)]">
+          <h1 className="m-0 mb-2 leading-[1.02] text-[var(--accent)] font-extrabold text-[clamp(3.5rem,10vw,7rem)]">
             <span className="accent-gradient">Danny Quillo</span>
           </h1>
 
@@ -73,8 +72,9 @@ export default function Hero() {
             </IconButton>
           </div>
 
-          <p className="m-0 mb-5 font-mono tracking-wide text-[var(--text)] text-[clamp(1.05rem,1.8vw,1.25rem)] whitespace-nowrap max-[900px]:whitespace-normal">
-            A passionate Software Developer 🚀 | Motivated Innovator ✏️ | Maintainer 👷
+          <p className="m-0 mb-5 font-mono tracking-wide text-[var(--text)] text-[clamp(1.05rem,1.8vw,1.7rem)] whitespace-nowrap max-[900px]:whitespace-normal">
+            {/* A passionate Software Developer 🚀 | Motivated Innovator ✏️ | Maintainer 👷 */}
+            Passionate Software Developer | Full Stack Web Developer | Maintainer
           </p>
 
           <p className="m-0">

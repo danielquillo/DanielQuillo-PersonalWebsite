@@ -1,16 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import Header from "./components/header"
+import Footer from "./components/footer"
 import Hero from "./sections/hero"
+import About from "./sections/about"
+import Projects from "./sections/projects"
+import Experience from "./sections/experience"
+import Contact from "./sections/contact"
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-        <Header/>
-        <Hero/>
+        <Header />
+        <main>
+            <Hero />
+            <About />
+            <Projects />
+            <Experience />
+            <Contact />
+        </main>
+        <Footer />
     </>
   )
 }

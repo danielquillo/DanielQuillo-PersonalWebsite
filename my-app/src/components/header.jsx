@@ -47,7 +47,7 @@ export default function Header() {
     
     return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[var(--bg)]">
-      <div className="mx-auto w-full max-w-[1100px] px-4">
+      <div className="mx-auto w-full max-w-[1400px] px-4">
         <nav
           className={[
             'flex items-center gap-4 transition-[height] duration-200',
