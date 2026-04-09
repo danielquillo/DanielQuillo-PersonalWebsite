@@ -60,8 +60,8 @@ export default function Header() {
         <nav
           aria-label="Primary"
           className={[
-            "mx-auto hidden items-center rounded-full border px-2 backdrop-blur-sm md:flex",
-            shrink ? "h-12" : "h-14",
+            "mx-auto hidden items-center rounded-full border px-2 backdrop-blur-sm md:flex h-12",
+            // shrink ? "h-12" : "h-14",
           ].join(" ")}
           style={{
             borderColor: "var(--nav-border)",
@@ -77,7 +77,7 @@ export default function Header() {
                 <li key={s.id}>
                   <a
                     href={`#${s.id}`}
-                    className="inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold transition-all duration-200"
+                    className="inline-flex items-center rounded-full px-4 py-2 text-xs font-semibold transition-all duration-200"
                     style={
                       isActive
                         ? {
@@ -121,7 +121,7 @@ export default function Header() {
               onClick={() => setTheme("light")}
               aria-label="Switch to light mode"
               title="Light mode"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-full transition-all duration-200"
+              className="inline-flex h-8 w-8 items-center justify-center rounded-full transition-all duration-200"
               style={
                 theme === "light"
                   ? {
@@ -146,7 +146,7 @@ export default function Header() {
                 }
               }}
             >
-              <AiOutlineSun className="h-5 w-5 text-current"/>
+              <AiOutlineSun className="h-4 w-4 text-current"/>
             </button>
 
             <button
@@ -154,7 +154,7 @@ export default function Header() {
               onClick={() => setTheme("dark")}
               aria-label="Switch to dark mode"
               title="Dark mode"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-full transition-all duration-200"
+              className="inline-flex h-8 w-8 items-center justify-center rounded-full transition-all duration-200"
               style={
                 theme === "dark"
                   ? {
@@ -179,7 +179,7 @@ export default function Header() {
                 }
               }}
             >
-              <AiOutlineMoon className="h-5 w-5 text-current"/>
+              <AiOutlineMoon className="h-4 w-4 text-current"/>
             </button>
 
             </div>
