@@ -36,24 +36,6 @@ const technicalGroups = [
   },
 ]
 
-const techColumns = [
-  [
-    { name: "HTML", icon: SiHtml5, color: "#E34F26" },
-    { name: "React", icon: SiReact, color: "#61DAFB" },
-    { name: "C++", icon: SiCplusplus, color: "#5C8DBC" },
-  ],
-  [
-    { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
-    { name: "CSS", icon: FaCss3Alt, color: "#1572B6" },
-    { name: "Python", icon: SiPython, color: "#3776AB" },
-  ],
-  [
-    { name: "Java", icon: FaJava, color: "#F89820" },
-    { name: "Tailwind", icon: SiTailwindcss, color: "#06B6D4" },
-    { name: "Git", icon: SiGit, color: "#F05032" },
-  ],
-]
-
 const techStack = [
   { name: "HTML", icon: SiHtml5, color: "#E34F26" },
   { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
@@ -68,8 +50,22 @@ const techStack = [
 
 function InfoCard({ title, children }) {
   return (
-    <article className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur shadow-lg transition duration-300 hover:border-white/20 hover:bg-white/[0.07]">
-      <h3 className="mb-4 text-lg font-bold text-[var(--text)] md:text-xl">
+    <article
+      className="rounded-3xl border p-6 backdrop-blur-md shadow-lg transition duration-300 md:text-xl"
+      style={{
+        borderColor: "var(--border)",
+        backgroundColor: "var(--card-bg)",
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.borderColor = "var(--border-strong)"
+        e.currentTarget.style.backgroundColor = "var(--card-bg-hover)"
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.borderColor = "var(--border)"
+        e.currentTarget.style.backgroundColor = "var(--card-bg)"
+      }}
+    >
+      <h3 className="mb-4 text-lg font-bold text-[var(--text)]">
         {title}
       </h3>
       {children}
@@ -82,17 +78,35 @@ function GradientTechCard({ tech }) {
 
   return (
     <div
-      className="rounded-[24px] p-[1.5px] shadow-[0_0_0_1px_rgba(255,255,255,0.03)] transition duration-300 hover:-translate-y-1"
-      style={{ background: "var(--accent-gradient)" }}
+      className="rounded-[24px] p-[1.5px] transition duration-300 hover:-translate-y-1"
+      style={{
+        background: "var(--accent-gradient)",
+        boxShadow: "var(--shadow-soft)",
+      }}
     >
-      <div className="rounded-[22px] border border-white/5 bg-[#0b1120]/90 px-4 py-5 backdrop-blur-sm transition duration-300 hover:bg-[#0d1428]/95">
+      <div
+        className="rounded-[22px] border px-4 py-5 backdrop-blur-md transition duration-300"
+        style={{
+          borderColor: "var(--border-soft)",
+          backgroundColor: "var(--tech-card-bg)",
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.backgroundColor = "var(--tech-card-bg-hover)"
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.backgroundColor = "var(--tech-card-bg)"
+        }}
+      >
         <div className="flex h-[100px] flex-col items-center justify-center text-center">
           <Icon
             className="mb-3 text-[1.9rem] sm:text-[2.2rem]"
             style={{ color: tech.color }}
           />
 
-          <p className="text-[0.88rem] font-semibold uppercase tracking-[0.16em] text-white/90">
+          <p
+            className="text-[0.88rem] font-semibold uppercase tracking-[0.16em]"
+            style={{ color: "var(--tech-card-text)" }}
+          >
             {tech.name}
           </p>
         </div>
@@ -103,9 +117,22 @@ function GradientTechCard({ tech }) {
 
 function TechVisualBlock() {
   return (
-    <article className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur shadow-lg">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_18%,rgba(122,162,255,0.10),transparent_24%),radial-gradient(circle_at_80%_78%,rgba(122,162,255,0.07),transparent_22%)]" />
-
+    <article
+        className="relative overflow-hidden rounded-3xl border p-6 backdrop-blur-md shadow-lg"
+        style={{
+            borderColor: "var(--border)",
+            backgroundColor: "var(--card-bg)",
+        }}
+    >
+        <div
+            className="pointer-events-none absolute inset-0"
+            style={{
+            background: `
+                radial-gradient(circle at 20% 18%, var(--accent-glow-1), transparent 24%),
+                radial-gradient(circle at 80% 78%, var(--accent-glow-2), transparent 22%)
+            `,
+            }}
+        />
       <div className="relative z-10 flex h-full flex-col">
         <p className="mb-2 text-sm font-semibold uppercase tracking-[.14em] text-[var(--accent)]">
           Stack
@@ -135,10 +162,10 @@ export default function About() {
     <section
       id="about"
       aria-label="About"
-      className=" py-20 md:py-24"
+      className=" py-20 md:py-5 scroll-mt-[72px]"
     >
       <div className="mx-auto w-full max-w-[1300px] px-4">
-        <div className="max-w-4xl">
+        <div className="">
           <p className="mb-3 text-sm font-semibold uppercase tracking-[.14em] text-[var(--accent)]">
             About
           </p>
@@ -155,7 +182,7 @@ export default function About() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-stretch">
+        <div className="mt-5 grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-stretch">
           <div className="flex flex-col gap-6">
             <InfoCard title="Education">
               <ul className="space-y-3 text-sm leading-7 text-[var(--muted)] md:text-[0.96rem]">
@@ -172,7 +199,10 @@ export default function About() {
               <div className="space-y-5">
                 {technicalGroups.map((group) => (
                   <div key={group.label}>
-                    <p className="mb-2 text-sm font-semibold uppercase tracking-[0.12em] text-white/70">
+                    <p
+                      className="mb-2 text-sm font-semibold uppercase tracking-[0.12em]"
+                      style={{ color: "var(--muted-strong)" }}
+                    >
                       {group.label}
                     </p>
 
@@ -180,7 +210,19 @@ export default function About() {
                       {group.items.map((item) => (
                         <span
                           key={item}
-                          className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-[var(--muted)] transition duration-200 hover:border-white/20 hover:bg-white/[0.08] hover:text-[var(--text)]"
+                          className="rounded-full border px-3 py-1.5 text-sm text-[var(--muted)] transition duration-200 hover:text-[var(--text)]"
+                            style={{
+                            borderColor: "var(--border)",
+                            backgroundColor: "var(--surface)",
+                            }}
+                            onMouseEnter={(e) => {
+                            e.currentTarget.style.borderColor = "var(--border-strong)"
+                            e.currentTarget.style.backgroundColor = "var(--surface-2)"
+                            }}
+                            onMouseLeave={(e) => {
+                            e.currentTarget.style.borderColor = "var(--border)"
+                            e.currentTarget.style.backgroundColor = "var(--surface)"
+                            }}
                         >
                           {item}
                         </span>

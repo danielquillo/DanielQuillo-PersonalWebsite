@@ -2,7 +2,7 @@ const EXPERIENCE = [
   {
     role: "Web Developer",
     org: "Spring Rain Lawn Sprinklers Inc.",
-    date: "January 2026 – Present", // 
+    date: "January 2026 – Present",
     description:
       "Designed, built, and deployed a production website for a real landscaping and irrigation business to strengthen its online presence and improve customer outreach.",
     bullets: [
@@ -17,14 +17,13 @@ const EXPERIENCE = [
       "TypeScript",
       "Tailwind CSS",
       "Netlify",
-    //   "Resend", // CHANGE LATER
-      "Namecheap"
+      "Namecheap",
     ],
   },
   {
     role: "Technical Team Lead",
     org: "Society of Hispanic Professional Engineers (SHPE)",
-    date: "January 2025 – May 2025", 
+    date: "January 2025 – May 2025",
     description:
       "Active member of SHPE at UIUC, contributing to professional development, community building, and outreach initiatives.",
     bullets: [
@@ -39,22 +38,17 @@ const EXPERIENCE = [
 
 export default function Experience() {
   return (
-    <section
-      id="experience"
-      aria-label="Experience"
-      className="py-20"
-    >
-        {/* max-w-[1100px], change width of section if needed */}
+    <section id="experience" aria-label="Experience" className="py-20">
       <div className="mx-auto w-full max-w-[1300px] px-4">
         <p className="mb-3 text-sm font-semibold uppercase tracking-[.14em] text-[var(--accent)]">
           Experience
         </p>
 
-        <h2 className="mb-4 text-3xl font-extrabold tracking-tight md:text-4xl">
+        <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-[var(--text)] md:text-4xl">
           What I’ve worked on
         </h2>
 
-        <p className="mb-10 text-[var(--muted)] leading-8">
+        <p className="mb-10 leading-8 text-[var(--muted)]">
           A combination of real-world development experience, client work, and
           professional involvement that reflects my growth as a developer.
         </p>
@@ -63,9 +57,20 @@ export default function Experience() {
           {EXPERIENCE.map((item) => (
             <article
               key={item.role}
-              className="flex h-full flex-col rounded-3xl backdrop-blur border border-white/10 bg-white/5 p-6 shadow-lg transition duration-200 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.07]"
+              className="flex h-full flex-col rounded-3xl border p-6 shadow-lg backdrop-blur transition duration-200 hover:-translate-y-1"
+              style={{
+                borderColor: "var(--border)",
+                backgroundColor: "var(--card-bg)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = "var(--border-strong)"
+                e.currentTarget.style.backgroundColor = "var(--card-bg-hover)"
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = "var(--border)"
+                e.currentTarget.style.backgroundColor = "var(--card-bg)"
+              }}
             >
-              {/* Header */}
               <div className="mb-3 flex items-center justify-between">
                 <h3 className="text-xl font-bold text-[var(--text)]">
                   {item.role}
@@ -83,7 +88,6 @@ export default function Experience() {
                 {item.description}
               </p>
 
-              {/* Bullets */}
               <ul className="mb-5 space-y-2 text-sm text-[var(--muted)]">
                 {item.bullets.map((b) => (
                   <li key={b} className="flex gap-2">
@@ -93,12 +97,15 @@ export default function Experience() {
                 ))}
               </ul>
 
-              {/* Tags */}
-              <div className="mt-auto flex flex-wrap gap-2 pt-4 ">
+              <div className="mt-auto flex flex-wrap gap-2 pt-4">
                 {item.tech.map((t) => (
                   <span
                     key={t}
-                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-[var(--muted)]"
+                    className="rounded-full border px-3 py-1 text-xs font-medium text-[var(--muted)]"
+                    style={{
+                      borderColor: "var(--border)",
+                      backgroundColor: "var(--surface)",
+                    }}
                   >
                     {t}
                   </span>

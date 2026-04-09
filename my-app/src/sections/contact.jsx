@@ -5,7 +5,18 @@ function ContactIcon({ href, label, children }) {
       target={href.startsWith("http") ? "_blank" : undefined}
       rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
       aria-label={label}
-      className="grid h-[54px] w-[54px] place-items-center rounded-full border-2 border-[rgba(122,162,255,0.35)] bg-transparent text-[var(--text)] transition duration-150 hover:-translate-y-0.5 hover:border-[rgba(122,162,255,0.6)] hover:bg-white/6 hover:text-[var(--accent)] focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+      className="grid h-[54px] w-[54px] place-items-center rounded-full border-2 bg-transparent text-[var(--text)] transition duration-150 hover:-translate-y-0.5 hover:text-[var(--accent)] focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+      style={{
+        borderColor: "var(--accent-border-soft)",
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.borderColor = "var(--accent-border-strong)"
+        e.currentTarget.style.backgroundColor = "var(--contact-icon-hover)"
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.borderColor = "var(--accent-border-soft)"
+        e.currentTarget.style.backgroundColor = "transparent"
+      }}
     >
       {children}
     </a>
@@ -19,17 +30,16 @@ export default function Contact() {
       aria-label="Contact"
       className="scroll-mt-[72px] py-[clamp(3.25rem,6vw,6.5rem)]"
     >
-        {/* max-w-[1100px], change width of section if needed */}
       <div className="mx-auto w-full max-w-[1300px] px-4">
         <div className="grid items-center gap-[clamp(2rem,6vw,4rem)] md:grid-cols-[1fr_clamp(260px,28vw,360px)] md:grid-areas-[unset]">
           <div>
             <p className="mb-2 text-[clamp(.9rem,1.4vw,1.1rem)] font-bold uppercase tracking-[.14em] text-[var(--muted)]">
-              Discuss a project or just want to say hi? My inbox is open for
+              Want to discuss a project or just want to say hi? My inbox is open for
               all.
             </p>
 
             <h2 className="mb-4 text-[clamp(2.2rem,6vw,3.6rem)] font-extrabold leading-[1.05] tracking-[.01em] text-[var(--text)]">
-              React Out to me!
+              Reach Out to me!
             </h2>
 
             <p className="max-w-[65ch] text-[clamp(1rem,1.5vw,1.1rem)] leading-[1.9] text-[var(--muted)]">
@@ -83,7 +93,8 @@ export default function Contact() {
               <img
                 src="/headshot.jpg"
                 alt="Daniel Quillo headshot"
-                className="h-full w-full rounded-full bg-[#0b0f1a] object-cover"
+                className="h-full w-full rounded-full object-cover"
+                style={{ backgroundColor: "var(--avatar-bg)" }}
               />
             </div>
           </div>

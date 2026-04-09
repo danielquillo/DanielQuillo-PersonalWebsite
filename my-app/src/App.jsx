@@ -11,7 +11,7 @@ function App() {
   return (
     <>
         {/* <Header /> */}
-        <div className="relative min-h-screen bg-slate-950 text-white">
+        <div className="relative min-h-screen ">
             <SiteStars />
             <main className="relative z-10">
                 <Header />

@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react"
+import { AiOutlineMoon, AiOutlineSun } from "react-icons/ai";
 
 const SECTIONS = [
   { id: "hero", label: "Home" },
@@ -11,6 +12,10 @@ const SECTIONS = [
 export default function Header() {
   const [shrink, setShrink] = useState(false)
   const [active, setActive] = useState("hero")
+  const [theme, setTheme] = useState(() => {
+    if (typeof window === "undefined") return "dark"
+    return localStorage.getItem("theme") || document.documentElement.dataset.theme || "dark"
+  })
 
   const navH = useMemo(() => (shrink ? 56 : 72), [shrink])
 
@@ -44,25 +49,25 @@ export default function Header() {
     return () => observer.disconnect()
   }, [navH])
 
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme
+    localStorage.setItem("theme", theme)
+  }, [theme])
+
   return (
     <header className="sticky top-0 z-50">
-      <div className="mx-auto flex w-full max-w-[1500px] items-center justify-between px-4 pt-4">
-        {/* <a
-          href="#hero"
-          className={[
-            "font-extrabold tracking-tight text-white transition-all duration-200",
-            shrink ? "text-xl" : "text-2xl",
-          ].join(" ")}
-        >
-          DQ
-        </a> */}
-
+      <div className="mx-auto flex w-full max-w-[1500px] items-center justify-between px-4 pt-2">
         <nav
           aria-label="Primary"
           className={[
-            "mx-auto hidden items-center rounded-full border border-white/10 bg-black/25 px-2 shadow-[0_8px_30px_rgba(0,0,0,0.22)] backdrop-blur-xl md:flex",
+            "mx-auto hidden items-center rounded-full border px-2 backdrop-blur-sm md:flex",
             shrink ? "h-12" : "h-14",
           ].join(" ")}
+          style={{
+            borderColor: "var(--nav-border)",
+            backgroundColor: "var(--nav-bg)",
+            boxShadow: "var(--nav-shadow)",
+          }}
         >
           <ul className="flex items-center gap-1">
             {SECTIONS.map((s) => {
@@ -72,12 +77,30 @@ export default function Header() {
                 <li key={s.id}>
                   <a
                     href={`#${s.id}`}
-                    className={[
-                      "inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold transition-all duration-200",
+                    className="inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold transition-all duration-200"
+                    style={
                       isActive
-                        ? "bg-white/14 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]"
-                        : "text-white/70 hover:bg-white/8 hover:text-white",
-                    ].join(" ")}
+                        ? {
+                            backgroundColor: "var(--nav-pill-active-bg)",
+                            color: "var(--nav-pill-active-text)",
+                            boxShadow: "var(--nav-pill-active-ring)",
+                          }
+                        : {
+                            color: "var(--nav-pill-text)",
+                          }
+                    }
+                    onMouseEnter={(e) => {
+                      if (!isActive) {
+                        e.currentTarget.style.backgroundColor = "var(--nav-pill-hover-bg)"
+                        e.currentTarget.style.color = "var(--nav-pill-hover-text)"
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (!isActive) {
+                        e.currentTarget.style.backgroundColor = "transparent"
+                        e.currentTarget.style.color = "var(--nav-pill-text)"
+                      }
+                    }}
                   >
                     {s.label}
                   </a>
@@ -85,6 +108,82 @@ export default function Header() {
               )
             })}
           </ul>
+
+          <div className="ml-3 flex items-center">
+            <div
+              className="mr-3 h-6 w-px"
+              style={{ backgroundColor: "var(--nav-border)"}}
+            />
+            <div
+              className="flex items-center gap-1 ">
+              <button
+              type="button"
+              onClick={() => setTheme("light")}
+              aria-label="Switch to light mode"
+              title="Light mode"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full transition-all duration-200"
+              style={
+                theme === "light"
+                  ? {
+                      backgroundColor: "var(--nav-pill-active-bg)",
+                      color: "var(--nav-pill-active-text)",
+                      boxShadow: "var(--nav-pill-active-ring)",
+                    }
+                  : {
+                      color: "var(--nav-pill-text)",
+                    }
+              }
+              onMouseEnter={(e) => {
+                if (theme !== "light") {
+                  e.currentTarget.style.backgroundColor = "var(--nav-pill-hover-bg)"
+                  e.currentTarget.style.color = "var(--nav-pill-hover-text)"
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (theme !== "light") {
+                  e.currentTarget.style.backgroundColor = "transparent"
+                  e.currentTarget.style.color = "var(--nav-pill-text)"
+                }
+              }}
+            >
+              <AiOutlineSun className="h-5 w-5 text-current"/>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setTheme("dark")}
+              aria-label="Switch to dark mode"
+              title="Dark mode"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full transition-all duration-200"
+              style={
+                theme === "dark"
+                  ? {
+                      backgroundColor: "var(--nav-pill-active-bg)",
+                      color: "var(--nav-pill-active-text)",
+                      boxShadow: "var(--nav-pill-active-ring)",
+                    }
+                  : {
+                      color: "var(--nav-pill-text)",
+                    }
+              }
+              onMouseEnter={(e) => {
+                if (theme !== "dark") {
+                  e.currentTarget.style.backgroundColor = "var(--nav-pill-hover-bg)"
+                  e.currentTarget.style.color = "var(--nav-pill-hover-text)"
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (theme !== "dark") {
+                  e.currentTarget.style.backgroundColor = "transparent"
+                  e.currentTarget.style.color = "var(--nav-pill-text)"
+                }
+              }}
+            >
+              <AiOutlineMoon className="h-5 w-5 text-current"/>
+            </button>
+
+            </div>
+          </div>
         </nav>
 
         <div className="w-[42px] md:w-[56px]" />

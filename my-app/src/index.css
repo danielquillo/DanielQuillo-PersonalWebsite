@@ -1,11 +1,58 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #0f1220;
-  --bg-2: #151935;
-  --text: #e7e9f3;
-  --muted: #b6bbd1;
-  --accent: #7aa2ff;
+  --bg: #f7f8fc;
+  --bg-2: #ffffff;
+  --surface: rgba(15, 23, 42, 0.04);
+  --surface-2: rgba(15, 23, 42, 0.07);
+  --surface-3: rgba(15, 23, 42, 0.10);
+
+  --border: rgba(15, 23, 42, 0.10);
+  --border-strong: rgba(15, 23, 42, 0.16);
+  --border-soft: rgba(15, 23, 42, 0.06);
+
+  --text: #0f172a;
+  --muted: #475569;
+  --muted-strong: rgba(15, 23, 42, 0.7);
+
+  --accent: #5b8cff;
+  --accent-gradient: linear-gradient(135deg, #5b8cff 0%, #7bd8cb 100%);
+
+  --card-bg: rgba(255, 255, 255, 0.72);
+  --card-bg-hover: rgba(255, 255, 255, 0.84);
+
+  --tech-card-bg: rgba(255, 255, 255, 0.92);
+  --tech-card-bg-hover: rgba(255, 255, 255, 0.98);
+  --tech-card-text: rgba(15, 23, 42, 0.9);
+
+  --accent-glow-1: rgba(91, 140, 255, 0.10);
+  --accent-glow-2: rgba(123, 216, 203, 0.08);
+
+  --shadow-soft: 0 0 0 1px rgba(15, 23, 42, 0.03);
+  --overlay: rgba(15, 23, 42, 0.55);
+  --image-frame: rgba(15, 23, 42, 0.06);
+  --button-primary-text: #ffffff;
+  --button-secondary-bg-hover: rgba(15, 23, 42, 0.07);
+  --button-secondary-border: rgba(15, 23, 42, 0.14);
+  --button-secondary-border-strong: rgba(15, 23, 42, 0.2);
+
+  --accent-border-soft: rgba(91, 140, 255, 0.35);
+  --accent-border-strong: rgba(91, 140, 255, 0.6);
+  --contact-icon-hover: rgba(15, 23, 42, 0.06);
+  --avatar-bg: #e9eef8;
+
+  --nav-bg: rgba(255, 255, 255, 0.72);
+  --nav-border: rgba(15, 23, 42, 0.08);
+  --nav-shadow: 0 8px 30px rgba(15, 23, 42, 0.12);
+
+  --nav-pill-active-bg: rgba(15, 23, 42, 0.08);
+  --nav-pill-active-text: #0f172a;
+  --nav-pill-active-ring: inset 0 0 0 1px rgba(15, 23, 42, 0.05);
+
+  --nav-pill-text: rgba(15, 23, 42, 0.72);
+  --nav-pill-hover-bg: rgba(15, 23, 42, 0.06);
+  --nav-pill-hover-text: #0f172a;
+
   scroll-behavior: smooth;
 }
 
@@ -14,11 +61,53 @@
   --bg-2: #0b1120;
   --surface: rgba(255, 255, 255, 0.05);
   --surface-2: rgba(255, 255, 255, 0.08);
-  --border: rgba(255, 255, 255, 0.1);
+  --surface-3: rgba(255, 255, 255, 0.10);
+
+  --border: rgba(255, 255, 255, 0.10);
+  --border-strong: rgba(255, 255, 255, 0.25);
+  --border-soft: rgba(255, 255, 255, 0.05);
+
   --text: #f8fafc;
   --muted: #a7b0c3;
+  --muted-strong: rgba(255, 255, 255, 0.7);
+
   --accent: #7aa2ff;
   --accent-gradient: linear-gradient(135deg, #7aa2ff 0%, #9be7d8 100%);
+
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-bg-hover: rgba(255, 255, 255, 0.07);
+
+  --tech-card-bg: rgba(11, 17, 32, 0.90);
+  --tech-card-bg-hover: rgba(13, 20, 40, 0.95);
+  --tech-card-text: rgba(255, 255, 255, 0.9);
+
+  --accent-glow-1: rgba(122, 162, 255, 0.10);
+  --accent-glow-2: rgba(122, 162, 255, 0.07);
+
+  --shadow-soft: 0 0 0 1px rgba(255, 255, 255, 0.03);
+
+  --overlay: rgba(0, 0, 0, 0.6);
+  --image-frame: rgba(0, 0, 0, 0.2);
+  --button-primary-text: #0f1220;
+  --button-secondary-bg-hover: rgba(255, 255, 255, 0.08);
+  --button-secondary-border: rgba(255, 255, 255, 0.15);
+  --button-secondary-border-strong: rgba(255, 255, 255, 0.24);
+  --accent-border-soft: rgba(122, 162, 255, 0.35);
+  --accent-border-strong: rgba(122, 162, 255, 0.6);
+  --contact-icon-hover: rgba(255, 255, 255, 0.06);
+  --avatar-bg: #0b0f1a;
+
+  --nav-bg: rgba(0, 0, 0, 0.25);
+  --nav-border: rgba(255, 255, 255, 0.10);
+  --nav-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
+
+  --nav-pill-active-bg: rgba(255, 255, 255, 0.14);
+  --nav-pill-active-text: #ffffff;
+  --nav-pill-active-ring: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+
+  --nav-pill-text: rgba(255, 255, 255, 0.70);
+  --nav-pill-hover-bg: rgba(255, 255, 255, 0.08);
+  --nav-pill-hover-text: #ffffff;
 }
 
 @layer base {
@@ -26,17 +115,17 @@
     box-sizing: border-box;
   }
 
-  html, 
+  html,
   body {
     min-height: 100%;
   }
 
   body {
-  margin: 0;
-  background-color: var(--bg);
-  color: var(--text);
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-}
+    margin: 0;
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  }
 
   a {
     color: inherit;
@@ -46,7 +135,7 @@
 
 @layer utilities {
   .accent-gradient {
-    background: linear-gradient(90deg, var(--accent) 0%, #8fe3cf 100%);
+    background: var(--accent-gradient);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -64,6 +153,6 @@
   }
   to {
     opacity: 1;
-    transform: translateY();
+    transform: translateY(0);
   }
 }
