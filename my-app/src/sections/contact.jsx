@@ -91,7 +91,7 @@ export default function Contact() {
           <div className="order-first grid place-items-center md:order-none">
             <div className="relative mx-auto grid h-[clamp(220px,28vw,280px)] w-[clamp(220px,28vw,280px)] place-items-center rounded-full p-0">
               <img
-                src="/headshot.jpg"
+                src="../public/headshot.jpg"
                 alt="Daniel Quillo headshot"
                 className="h-full w-full rounded-full object-cover"
                 style={{ backgroundColor: "var(--avatar-bg)" }}

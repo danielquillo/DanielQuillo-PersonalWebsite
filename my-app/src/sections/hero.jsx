@@ -79,7 +79,7 @@ export default function Hero() {
           <p className="m-0">
             <a
               className="inline-block font-extrabold uppercase tracking-[.06em] text-[var(--accent)] border-b-2 border-transparent transition hover:-translate-y-0.5 hover:border-current focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] text-[clamp(1.05rem,2.4vw,1.35rem)]"
-              href="/assets/DanielQuilloResume.pdf"
+              href="../assets/DanielQuilloResume.pdf"
               target="_blank"
               rel="noopener noreferrer"
             >
