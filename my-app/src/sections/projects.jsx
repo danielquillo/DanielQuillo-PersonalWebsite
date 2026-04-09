@@ -1,9 +1,11 @@
 import { useMemo, useState } from "react"
+import SpringRainSC from "../assets/SpringRainSC.png"
+import TechTeamSC from "../assets/TechTeamSC.png"
 
 const PROJECTS = [
   {
     title: "SHPE Tech Team Website",
-    image: "../public/TechTeamSC.png",
+    image: TechTeamSC,
     shortDescription:
       "Developed and maintained a website for SHPE Tech to improve usability, visibility, and engagement.",
     fullDescription:
@@ -16,7 +18,7 @@ const PROJECTS = [
   },
   {
     title: "Spring Rain Website",
-    image: "../public/SpringRainSC.png",
+    image: SpringRainSC,
     shortDescription:
       "Created a responsive website to showcase Spring Rain’s services, mission, and community presence.",
     fullDescription:
