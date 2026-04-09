@@ -1,40 +1,42 @@
 import { useMemo, useState } from "react"
 
 const PROJECTS = [
+//   {
+//     title: "Nonstop Networking (CS 341)",
+//     image: "/image.jpg",
+//     shortDescription:
+//       "Built a non-blocking I/O network stack with epoll/kqueue, focusing on throughput and fairness under load.",
+//     fullDescription:
+//       "Implemented a non-blocking networking system for CS 341, focusing on efficient event-driven communication, fairness under load, and scalable I/O handling. This project strengthened my understanding of systems programming, concurrency, and performance tradeoffs.",
+//     tech: ["C", "Networking", "epoll", "Systems"],
+//     links: [
+//       { label: "GitHub", href: "https://github.com/danielquillo" },
+//     ],
+//   },
   {
-    title: "Nonstop Networking (CS 341)",
-    image: "/image.jpg",
-    shortDescription:
-      "Built a non-blocking I/O network stack with epoll/kqueue, focusing on throughput and fairness under load.",
-    fullDescription:
-      "Implemented a non-blocking networking system for CS 341, focusing on efficient event-driven communication, fairness under load, and scalable I/O handling. This project strengthened my understanding of systems programming, concurrency, and performance tradeoffs.",
-    tech: ["C", "Networking", "epoll", "Systems"],
-    links: [
-      { label: "GitHub", href: "https://github.com/danielquillo" },
-    ],
-  },
-  {
-    title: "SHPE Tech Website",
-    image: "/shpe-logo.png",
+    title: "SHPE Tech Team Website",
+    image: "/TechTeamSC.png",
     shortDescription:
       "Developed and maintained a website for SHPE Tech to improve usability, visibility, and engagement.",
     fullDescription:
       "Built and maintained the SHPE Tech website using Flask, HTML, CSS, and JavaScript. The project focused on improving user experience, clearer information structure, and a stronger digital presence for the organization.",
     tech: ["Flask", "JavaScript", "HTML", "CSS"],
     links: [
-      { label: "GitHub", href: "https://github.com/danielquillo" },
+      { label: "GitHub", href: "https://github.com/SHPE-Tech-Team/SHPE_Website" },
+      { label: "Live Site", href: "https://shpe-website-ten.vercel.app/"}
     ],
   },
   {
     title: "Spring Rain Website",
-    image: "/springrain.jpg",
+    image: "/SpringRainSC.png",
     shortDescription:
       "Created a responsive website to showcase Spring Rain’s services, mission, and community presence.",
     fullDescription:
       "Designed and developed a responsive website for Spring Rain using Flask, HTML, CSS, and JavaScript. The site was built to communicate the organization’s identity clearly while staying accessible across devices.",
     tech: ["Flask", "Responsive Design", "JavaScript", "HTML/CSS"],
     links: [
-      { label: "GitHub", href: "https://github.com/danielquillo" },
+      { label: "GitHub", href: "https://github.com/danielquillo/SpringRain" },
+      { label: "Live Site", href: "https://springrainlawn.com/"}
     ],
   },
 ]
@@ -121,7 +123,7 @@ export default function Projects() {
       <section
         id="projects"
         aria-label="Projects"
-        className="scroll-mt-[72px] py-20"
+        className="py-20"
       >
         {/* max-w-[1100px], change width of section if needed */}
         <div className="mx-auto w-full max-w-[1300px] px-4">
@@ -133,27 +135,27 @@ export default function Projects() {
             Things I’ve built
           </h2>
 
-          <p className="mb-10 max-w-2xl text-[var(--muted)] leading-8">
+          <p className="mb-10 text-[var(--muted)] leading-8">
             A selection of projects that reflect my interests in software
             development, systems, web design, and building tools with real user
             value.
           </p>
 
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid gap-8 lg:grid-cols-2">
             {projects.map((project) => (
               <article
                 key={project.title}
-                className="group overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-lg transition duration-200 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.07]"
+                className="group flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-lg transition duration-200 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.07]"
               >
                 <div className="overflow-hidden border-b border-white/10">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="h-48 w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+                    className="h-56 w-full object-cover transition duration-300 group-hover:scale-[1.03] md:h-64"
                   />
                 </div>
 
-                <div className="p-5">
+                <div className="flex flex-1 flex-col p-6 backdrop-blur">
                   <h3 className="mb-2 text-xl font-bold text-[var(--text)]">
                     {project.title}
                   </h3>
@@ -173,7 +175,7 @@ export default function Projects() {
                     ))}
                   </div>
 
-                  <div className="flex items-center gap-3">
+                  <div className="mt-auto flex items-center gap-3 pt-2">
                     <button
                       onClick={() => setSelectedProject(project)}
                       className="rounded-full bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-[#0f1220] transition hover:-translate-y-0.5"
@@ -181,16 +183,17 @@ export default function Projects() {
                       View Details
                     </button>
 
-                    {project.links[0] && (
+                    {project.links.map((link) =>(
                       <a
-                        href={project.links[0].href}
+                        key={link.label}
+                        href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="rounded-full border border-white/15 px-4 py-2 text-sm font-semibold text-[var(--text)] transition hover:bg-white/8"
                       >
-                        {project.links[0].label}
+                        {link.label}
                       </a>
-                    )}
+                    ))}
                   </div>
                 </div>
               </article>

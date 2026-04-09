@@ -5,19 +5,25 @@ import About from "./sections/about"
 import Projects from "./sections/projects"
 import Experience from "./sections/experience"
 import Contact from "./sections/contact"
+import SiteStars from "./components/siteStars"
 
 function App() {
   return (
     <>
-        <Header />
-        <main>
-            <Hero />
-            <About />
-            <Projects />
-            <Experience />
-            <Contact />
-        </main>
-        <Footer />
+        {/* <Header /> */}
+        <div className="relative min-h-screen bg-slate-950 text-white">
+            <SiteStars />
+            <main className="relative z-10">
+                <Header />
+                <Hero />
+                <About />
+                <Projects />
+                <Experience />
+                <Contact />
+                <Footer />
+            </main>
+        </div>
+        {/* <Footer /> */}
     </>
   )
 }

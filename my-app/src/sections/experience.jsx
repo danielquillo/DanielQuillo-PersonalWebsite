@@ -1,22 +1,30 @@
 const EXPERIENCE = [
   {
     role: "Web Developer",
-    org: "Spring Rain Landscaping",
-    date: "2025 – Present", // change later
+    org: "Spring Rain Lawn Sprinklers Inc.",
+    date: "January 2026 – Present", // 
     description:
-      "Designed and developed a responsive website for a local landscaping and irrigation business to improve their online presence and customer engagement.",
+      "Designed, built, and deployed a production website for a real landscaping and irrigation business to strengthen its online presence and improve customer outreach.",
     bullets: [
-      "Built and deployed a full website using Flask, HTML, CSS, and JavaScript",
-      "Collaborated directly with the client to understand requirements and iterate on design",
-      "Improved accessibility and responsiveness across devices",
-      "Delivered a production-ready solution used by a real business",
+      "Built and launched a live client website using Next.js, React, TypeScript, and Tailwind CSS",
+      "Worked directly with the client to translate business needs into a polished, responsive web experience",
+      "Implemented a modern frontend with reusable components, responsive layouts, and improved usability across devices",
+      "Delivered a production-ready site for a real company, including deployment and a custom domain setup",
     ],
-    tech: ["Flask", "JavaScript", "HTML/CSS", "Responsive Design"],
+    tech: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Netlify",
+    //   "Resend", // CHANGE LATER
+      "Namecheap"
+    ],
   },
   {
-    role: "Member / [Your Role Here]",
+    role: "Technical Team Lead",
     org: "Society of Hispanic Professional Engineers (SHPE)",
-    date: "2024 – Present", // update later
+    date: "January 2025 – May 2025", 
     description:
       "Active member of SHPE at UIUC, contributing to professional development, community building, and outreach initiatives.",
     bullets: [
@@ -34,7 +42,7 @@ export default function Experience() {
     <section
       id="experience"
       aria-label="Experience"
-      className="scroll-mt-[72px] py-20"
+      className="py-20"
     >
         {/* max-w-[1100px], change width of section if needed */}
       <div className="mx-auto w-full max-w-[1300px] px-4">
@@ -46,7 +54,7 @@ export default function Experience() {
           What I’ve worked on
         </h2>
 
-        <p className="mb-10 max-w-2xl text-[var(--muted)] leading-8">
+        <p className="mb-10 text-[var(--muted)] leading-8">
           A combination of real-world development experience, client work, and
           professional involvement that reflects my growth as a developer.
         </p>
@@ -55,7 +63,7 @@ export default function Experience() {
           {EXPERIENCE.map((item) => (
             <article
               key={item.role}
-              className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-lg transition duration-200 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.07]"
+              className="flex h-full flex-col rounded-3xl backdrop-blur border border-white/10 bg-white/5 p-6 shadow-lg transition duration-200 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.07]"
             >
               {/* Header */}
               <div className="mb-3 flex items-center justify-between">
@@ -86,7 +94,7 @@ export default function Experience() {
               </ul>
 
               {/* Tags */}
-              <div className="flex flex-wrap gap-2">
+              <div className="mt-auto flex flex-wrap gap-2 pt-4 ">
                 {item.tech.map((t) => (
                   <span
                     key={t}
