@@ -3,7 +3,7 @@ import { useMemo, useState } from "react"
 const PROJECTS = [
   {
     title: "SHPE Tech Team Website",
-    image: "/TechTeamSC.png",
+    image: "../public/TechTeamSC.png",
     shortDescription:
       "Developed and maintained a website for SHPE Tech to improve usability, visibility, and engagement.",
     fullDescription:
@@ -16,7 +16,7 @@ const PROJECTS = [
   },
   {
     title: "Spring Rain Website",
-    image: "/SpringRainSC.png",
+    image: "../public/SpringRainSC.png",
     shortDescription:
       "Created a responsive website to showcase Spring Rain’s services, mission, and community presence.",
     fullDescription:
